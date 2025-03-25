@@ -344,7 +344,7 @@ class MainWindow(QMainWindow):
         初始化主窗口。
         """
         super().__init__()
-        self.setWindowTitle("球面分布遗传算法优化")
+        self.setWindowTitle("Monica_Genetic——球面分布遗传算法")
         self.setMinimumSize(1200, 800)
         self.setStyleSheet(self.load_styles())
 
@@ -505,17 +505,110 @@ class MainWindow(QMainWindow):
 
     def load_styles(self):
         """
-        飞书简约风QSS，把美化的东西丢在一起，不要干扰核心算法
-
-        Returns:
-            QSS样式
+        Compact Morfonica theme QSS with reduced spacing
         """
         return """
-        QWidget { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
-                    stop:0 rgba(240, 245, 255, 255), stop:1 rgba(220, 230, 250, 255)); }
-        QPushButton { background-color: #0078D4; color: white; border-radius: 8px; padding: 10px; }
-        QPushButton:hover { background-color: #005A9E; }
-        QLabel { font-size: 14px; }
+            * {
+                font-family: "Segoe UI", Arial, sans-serif;
+                font-size: 13px;
+                color: #003D99;
+            }
+    
+            QWidget {
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                            stop:0 rgba(235, 245, 255, 0.85), stop:1 rgba(220, 230, 250, 0.85));
+                border-radius: 8px;
+                border: 1px solid rgba(0, 100, 200, 0.15);
+                padding: 4px;
+                margin: 2px;
+            }
+    
+            QGroupBox {
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 8px;
+                border: 1px solid rgba(0, 95, 204, 0.12);
+                padding: 4px;
+                margin: 4px;
+                margin-top: 12px;
+            }
+    
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                subcontrol-position: top left;
+                padding: 4px 10px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #0044AA;
+            }
+            
+    
+            QLineEdit, QTextEdit, QSpinBox, QDoubleSpinBox {
+                background: rgba(255, 255, 255, 0.5);
+                border: 1px solid rgba(102, 163, 255, 0.4);
+                border-radius: 6px;
+                padding: 4px;
+                min-height: 18px;
+            }
+    
+            QSpinBox::up-button, QSpinBox::down-button,
+            QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
+                width: 0px;
+                border: none;
+                background: rgba(0, 95, 204, 0.1);
+                border-radius: 3px;
+            }
+    
+            QPushButton {
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                            stop:0 #0078D4, stop:1 #005FCC);
+                color: white;
+                border: none;
+                border-radius: 6px;
+                padding: 6px 12px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+    
+            QPushButton:hover {
+                background: #005A9E;
+            }
+    
+            QPushButton:pressed {
+                background: #004A8E;
+            }
+    
+            QScrollBar:vertical {
+                background: transparent;
+                width: 4px;
+                margin: 2px;
+            }
+    
+            QScrollBar::handle:vertical {
+                background: rgba(0, 95, 204, 0.4);
+                border-radius: 2px;
+            }
+    
+            QLabel {
+                font-size: 13px;
+                font-weight: 500;
+                padding: 2px 4px;
+                margin: 1px;
+                background: none; /* 移除背景 */
+                border: none; /* 移除边框 */
+            }
+    
+            QComboBox {
+                background: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(102, 163, 255, 0.4);
+                border-radius: 6px;
+                padding: 4px;
+                min-height: 24px;
+            }
+    
+            QStatusBar {
+                background: transparent;
+                color: #004A99;
+            }
         """
 
     def update_visualization(self, points):
